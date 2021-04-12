@@ -14,25 +14,14 @@ function encodeLine(str) {
   }
   let counter = 1;
   let encdStr = '';
-  let currChar = str[0];
   for (let i = 0; i < str.length; i++) {
-    if (str[i] === currChar) {
+    if (str[i] === str[i + 1]) {
       counter++;
-    } else {
-      if (counter === 1) {
-        encdStr += currChar;
-      } else {
-        encdStr += counter + currChar;
-      }
-      currChar = str[i];
+    } else if (counter > 1) {
+      encdStr += counter + str[i];
       counter = 1;
-    }
-    if (i === str.length - 1) {
-      if (counter === 1) {
-        encdStr += currChar;
-      } else {
-        encdStr += counter + currChar;
-      }
+    } else {
+      encdStr += str[i];
     }
   }
   return encdStr;
