@@ -12,14 +12,14 @@
 function sortByHeight(arr) {
   const sortedArr = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] >= 0) {
+    if (arr[i] !== -1) {
       sortedArr.push(arr[i]);
-      sortedArr.sort();
     }
   }
+  sortedArr.sort((j, k) => j - k);
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < 0) {
-      sortedArr.splice(i, 0, arr[i]);
+    if (arr[i] === -1) {
+      sortedArr.splice(i, 0, -1);
     }
   }
   return sortedArr;
