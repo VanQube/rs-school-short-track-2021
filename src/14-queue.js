@@ -28,7 +28,8 @@ class Queue {
       this.firstitem.value = element;
       this.lastitem = this.firstitem;
     } else {
-      const newitem = ListNode();
+      const newitem = new ListNode();
+      newitem.value = element;
       this.lastitem.next = newitem;
       this.lastitem = newitem;
     }
