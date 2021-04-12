@@ -10,9 +10,14 @@
  *
  */
 function deleteDigit(n) {
-  const arr = n.toString(10).replace(/\D/g, '0').split('').map(Number);
-  arr.splice(Math.min(arr), 1);
-  return +arr.join('');
+  let curMax = 0;
+  let tempDigit = 0;
+  const number = String(n);
+  for (let i = 0; i < number.length; i++) {
+    tempDigit = number.slice(0, i) + number.slice(i + 1);
+    curMax = +tempDigit > curMax ? +tempDigit : curMax;
+  }
+  return curMax;
 }
 
 module.exports = deleteDigit;
